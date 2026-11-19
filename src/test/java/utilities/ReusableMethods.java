@@ -46,4 +46,9 @@ public class ReusableMethods {
         ((JavascriptExecutor) Driver.getdriver())
                 .executeScript("arguments[0].click();", element);
     }
+
+    // Açık pencere/sekme sayısı beklenen sayıya ulaşana kadar bekler
+    public static void waitForNumberOfWindows(int beklenenSayi) {
+        getWait().until(ExpectedConditions.numberOfWindowsToBe(beklenenSayi));
+    }
 }
