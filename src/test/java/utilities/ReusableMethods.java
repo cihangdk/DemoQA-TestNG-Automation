@@ -5,7 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.By;
 import java.time.Duration;
 
 public class ReusableMethods {
@@ -50,5 +50,15 @@ public class ReusableMethods {
     // Açık pencere/sekme sayısı beklenen sayıya ulaşana kadar bekler
     public static void waitForNumberOfWindows(int beklenenSayi) {
         getWait().until(ExpectedConditions.numberOfWindowsToBe(beklenenSayi));
+    }
+
+    // Henüz DOM'da olmayabilecek elementi locator ile bulup görünür olana kadar bekler
+    public static WebElement waitForVisibility(By locator) {
+        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    // Elementin bir özelliği (attribute) beklenen değeri içerene kadar bekler
+    public static void waitForAttributeContains(WebElement element, String attribute, String deger) {
+        getWait().until(ExpectedConditions.attributeContains(element, attribute, deger));
     }
 }
