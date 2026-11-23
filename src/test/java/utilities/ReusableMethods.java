@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import java.time.Duration;
+import org.openqa.selenium.interactions.Actions;
 
 public class ReusableMethods {
 
@@ -60,5 +61,15 @@ public class ReusableMethods {
     // Elementin bir özelliği (attribute) beklenen değeri içerene kadar bekler
     public static void waitForAttributeContains(WebElement element, String attribute, String deger) {
         getWait().until(ExpectedConditions.attributeContains(element, attribute, deger));
+    }
+
+    // Elemente çift tıklar
+    public static void doubleClick(WebElement element) {
+        new Actions(Driver.getdriver()).doubleClick(element).perform();
+    }
+
+    // Elemente sağ tıklar (context click)
+    public static void rightClick(WebElement element) {
+        new Actions(Driver.getdriver()).contextClick(element).perform();
     }
 }
