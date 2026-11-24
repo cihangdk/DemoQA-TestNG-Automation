@@ -72,4 +72,9 @@ public class ReusableMethods {
     public static void rightClick(WebElement element) {
         new Actions(Driver.getdriver()).contextClick(element).perform();
     }
+
+    // Fareyi elementin üzerine getirir (hover)
+    public static void hover(WebElement element) {
+        new Actions(Driver.getdriver()).moveToElement(element).perform();
+    }
 }
